@@ -211,10 +211,10 @@ ifneq (true,$(LOCAL_UNINSTALLABLE_MODULE))
   ifeq ($(LOCAL_MODULE_CLASS),APPS)
   # framework-res.apk doesn't like the additional layer.
   # ifeq ($(LOCAL_NO_STANDARD_LIBRARIES),true)
-  ifeq ($(filter true,$(LOCAL_NO_STANDARD_LIBRARIES) $(LOCAL_IGNORE_SUBDIR)),)
+  ifeq ($(filter true,$(LOCAL_NO_STANDARD_LIBRARIES) $(LOCAL_IGNORE_SUBDIR) $(LOCAL_IS_RUNTIME_RESOURCE_OVERLAY)),)
   # Neither do Runtime Resource Overlay apks, which contain just the overlaid resources.
-  else ifeq ($(LOCAL_IS_RUNTIME_RESOURCE_OVERLAY),true)
-  else
+  #else ifeq ($(LOCAL_IS_RUNTIME_RESOURCE_OVERLAY),true)
+  #else
     my_module_path := $(my_module_path)/$(LOCAL_MODULE)
   endif
   endif
